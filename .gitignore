@@ -1,0 +1,16 @@
+# Abaikan folder dependensi/env
+node_modules/
+venv/
+draft/
+myvenv/
+
+# Abaikan file variabel sensitif
+.env
+
+# Abaikan log dan folder editor
+*.log
+.vscode/
+.DS_Store
+
+item_properties_part1.csv
+item_properties_part2.csv
