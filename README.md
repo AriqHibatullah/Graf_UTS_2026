@@ -22,8 +22,12 @@ Pembagian periode (filter) pada data tersebut:
 ## Overview hasil yang didapat
 | Perihal | Hasil |
 | :--- | :--- |
+| Jumlah Node | User Overlap: 11.104, Item Overlap: 61.287  |
+| Jumlah Event | P1: 1.009.164, P2: 292.404 |
 | Proyeksi yang digunakan | Proyeksi Item (Item-Item) |
 | User acak terpilih | 142299 |
 | 3 Item iklan | 460241, 158188, 83840 |
 | Hit@5 | 0 |
 | NDCG@5  | 0 |
+
+Hasil Hit@5 dan NDCG@5 bernilai 0 karena tidak satupun rekomendasi terdapat pada Ground Truth. Hal tersebut terjadi pada Pengguna `142299` akibat tingginya kelangkaan data (extreme sparsity) dan bias model Item-Based KNN terhadap kelompok produk populer di dense core, sehingga gagal merekomendasikan item aktual P2 (`172774`) yang bersifat long-tail. Dinamika preferensi pengguna yang terfragmentasi serta ground truth P2 yang hanya berjumlah satu item menciptakan sparsity bottleneck pada pengujian skala individu, yang menegaskan perlunya mengevaluasi performa model berdasarkan rata-rata agregat (Mean Hit@5 dan Mean NDCG@5) di seluruh sampel pengguna.
